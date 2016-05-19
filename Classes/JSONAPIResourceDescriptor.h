@@ -47,6 +47,9 @@
 /** Maps model property names to <JSONAPIPropertyDescriptor>. */
 @property (readonly) NSDictionary *properties;
 
+/** Maps model meta names to <JSONAPIPropertyDescriptor>. */
+@property (readonly) NSDictionary *meta;
+
 
 #pragma mark - Class Methods
 

@@ -181,6 +181,7 @@
     NSDictionary *relationships = [dictionary objectForKey:@"relationships"];
     NSDictionary *attributes = [dictionary objectForKey:@"attributes"];
     NSDictionary *links = [dictionary objectForKey:@"links"];
+    NSDictionary *metaData = [dictionary objectForKey:@"meta"];
 	
     id ID = [dictionary objectForKey:@"id"];
     NSFormatter *format = [descriptor idFormatter];
@@ -255,6 +256,28 @@
             }
         }
     }
+    
+    // Loops through all keys to map to meta
+    NSDictionary *meta = [descriptor meta];
+    for (NSString *key in meta) {
+        JSONAPIPropertyDescriptor *metaItem = [meta objectForKey:key];
+        
+        id value = [metaData objectForKey:[metaItem jsonName]];
+        
+        if (value) {
+            format = [metaItem formatter];
+        
+            if (format) {
+                id xformed;
+                if ([format getObjectValue:&xformed forString:value errorDescription:&error]) {
+                    [resource setValue:xformed forKey:key];
+                }
+            } else {
+                [resource setValue:value forKey:key];
+            }
+        }
+    }
+
 }
 
 + (id)jsonAPILink:(NSDictionary*)dictionary {

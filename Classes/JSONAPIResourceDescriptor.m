@@ -44,6 +44,7 @@ static NSMutableDictionary *linkedTypeToResource = nil;
         _type = linkedType;
         _resourceClass = resource;
         _properties = [[NSMutableDictionary alloc] init];
+        _meta = [[NSMutableDictionary alloc] init];
 		
         [self setIdProperty:@"ID"];
         [self setSelfLinkProperty:@"selfLink"];
@@ -64,6 +65,23 @@ static NSMutableDictionary *linkedTypeToResource = nil;
 - (void)addProperty:(NSString*)name withDescription:(JSONAPIPropertyDescriptor*)description {
     [[self properties] setValue:description forKey:name];
 }
+
+
+// meta
+
+- (void)addMeta:(NSString*)name {
+    [self addMeta:name withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:name]];
+}
+
+- (void)addMeta:(NSString*)name withJsonName:(NSString *)json
+{
+    [self addMeta:name withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:json]];
+}
+
+- (void)addMeta:(NSString*)name withDescription:(JSONAPIPropertyDescriptor*)description {
+    [[self meta] setValue:description forKey:name];
+}
+
 
 // note: hasOne and hasMany are identical for now, but seems reasonable to keep both
 
