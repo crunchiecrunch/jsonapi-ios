@@ -7,12 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "JSONAPIResourceDescriptor.h"
+#import "CommentResource.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [JSONAPIResourceDescriptor addResource:[CommentResource class]];
+    
     return YES;
 }
 							

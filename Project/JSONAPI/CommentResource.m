@@ -22,7 +22,10 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"comments"];
-        [__descriptor addProperty:@"text" withJsonName:@"body"];
+        
+        [__descriptor addMeta:@"isFriend" withJsonName:@"is_friend"];
+        [__descriptor addMeta:@"text" withJsonName:@"body"];
+//        [__descriptor addProperty:@"text" withJsonName:@"body"];
 		
         [__descriptor hasOne:[PeopleResource class] withName:@"author"];
     });
