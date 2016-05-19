@@ -116,6 +116,14 @@
  */
 - (void)addProperty:(NSString*)name withDescription:(JSONAPIPropertyDescriptor*)description;
 
+// meta
+
+- (void)addMeta:(NSString*)name;
+
+- (void)addMeta:(NSString*)name withJsonName:(NSString *)json;
+
+- (void)addMeta:(NSString*)name withDescription:(JSONAPIPropertyDescriptor*)description;
+
 /**
  * Add a has-one related resource property.
  *
