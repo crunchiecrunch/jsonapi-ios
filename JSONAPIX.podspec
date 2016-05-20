@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "JSONAPI"
+  s.name         = "JSONAPIX"
   s.version      = "1.0.7"
   s.summary      = "A library for loading data from a JSON API datasource."
   s.description  = <<-DESC
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   #s.screenshots  = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license      = 'MIT'
   s.author       = { "Josh Holtz" => "me@joshholtz.com" }
-  s.source       = { :git => "https://github.com/joshdholtz/jsonapi-ios.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/crunchiecrunch/jsonapi-ios.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '5.0'
