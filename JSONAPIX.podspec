@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "JSONAPIX"
+  s.name         = "JSONAPI"
   s.version      = "1.0.7"
   s.summary      = "A library for loading data from a JSON API datasource."
   s.description  = <<-DESC
